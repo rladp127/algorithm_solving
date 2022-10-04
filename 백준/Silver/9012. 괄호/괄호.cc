@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-// ())(()
+
 int main() {
         int T; // test case 입력
         cin >> T;
@@ -17,18 +17,17 @@ int main() {
                 string arr[len]; // 저장할 스택(괄호 길이만큼)
 
                 for (int j = 0; j < len; j++) {
-                        if (input[j] == '(') {
+                        if (input[j] == '(') 
                                   arr[top++] = "(";
-                          }
+                          
                         else if(input[j] == ')') {
-                          if (top == 0) 
-                            result[i] = "NO";
+                          if (top == 0) result[i] = "NO";
                           else top--;
                         }
                 }
           
                 if(top == 0 && result[i] != "NO") result[i] = "YES";
-          else if (top != 0) result[i] = "NO";
+                else if (top != 0) result[i] = "NO";
 
         }
 
