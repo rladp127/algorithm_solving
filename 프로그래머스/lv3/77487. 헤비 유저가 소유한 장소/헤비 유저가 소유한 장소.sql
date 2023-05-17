@@ -1,0 +1,11 @@
+# HOST_ID가 두개 이상이면 헤비유저.
+# 헤비유저가 등록한 공간의 정보를 아이디 순으로.
+
+SELECT *
+FROM PLACES
+WHERE HOST_ID IN 
+(SELECT HOST_ID
+FROM PLACES
+GROUP BY HOST_ID
+HAVING COUNT(*) > 1)
+ORDER BY ID;
