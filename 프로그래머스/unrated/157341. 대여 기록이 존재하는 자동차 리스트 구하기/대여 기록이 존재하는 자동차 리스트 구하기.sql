@@ -1,0 +1,18 @@
+# 자자 요약한번해보자!!!
+# 둘은 CAR_ID 라는 컬럼을 공유함.
+# 자동차 종료가 세단.
+# 대여시작이 10월.
+# => DISTINCT 자동차 ID를 출력하시오.
+# 그리고 DESC
+
+SELECT DISTINCT i.CAR_ID AS CAR_ID
+FROM (
+    SELECT *
+    FROM CAR_RENTAL_COMPANY_CAR
+    WHERE CAR_TYPE LIKE '세단'
+) i
+JOIN CAR_RENTAL_COMPANY_RENTAL_HISTORY j
+USING (CAR_ID)
+WHERE j.START_DATE LIKE '%-10-%'
+ORDER BY CAR_ID DESC
+;
