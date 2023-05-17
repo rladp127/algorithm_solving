@@ -1,0 +1,9 @@
+# 입양을 간 기록은 있는데 OUTS는 있음
+# 보호소에 들어온 기록은 없음 INS는 없음!?
+
+
+SELECT i.ANIMAL_ID, i.NAME
+FROM ANIMAL_OUTS i
+LEFT JOIN ANIMAL_INS j
+USING (ANIMAL_ID)
+WHERE j.ANIMAL_ID IS NULL;
