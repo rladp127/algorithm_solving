@@ -22,7 +22,9 @@ int w(int a, int b, int c) {
   return result[a][b][c];
 }
 
-int main() {
+int main() { 
+  ios_base::sync_with_stdio(false); 
+  cin.tie(NULL);
 
   int a, b, c;
   
