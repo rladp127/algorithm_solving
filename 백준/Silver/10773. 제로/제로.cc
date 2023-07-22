@@ -1,30 +1,31 @@
 #include <iostream>
 using namespace std;
+int stack[1000000];
 
-int main() {
-        int K;
-        cin >> K;
+int main () {
+  cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
 
-        int arr[K];
-        int top = 0;
+  int num;
+  cin >> num;
 
-        int sum = 0;
+  int idx = 0, sum = 0;
 
-        while (K != 0) {
-                int num;
-                cin >> num;
+  for (int i = 0; i < num; i++) {
+    int n;
+    cin >> n;
 
-                if (num == 0) {
-                        top--;
-                        sum -= arr[top];
-                }
-                else {
-                        arr[top++] = num;
-                        sum += num;
-                }
-                K--;
-        }
+    if (n == 0) idx--;
+    else 
+      stack[idx++] = n;
+  }
   
-        cout << sum;
-        return 0;
+  for (int i = 0; i < idx; i++) {
+    sum += stack[i];
+  }
+
+  cout << sum;
+
+
+  return 0;
 }
