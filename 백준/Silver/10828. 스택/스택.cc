@@ -1,50 +1,45 @@
-  #include <iostream>
-  using namespace std;
-  
-  int main() {
-    int N;
-    cin >> N; // 명령어 개수 입력 받기
-    int stack[N]; // 배열 만들기
-  
-    int top = 0;
-    
-    while(N != 0) {
-      string input;
-      cin >> input;
-  
-      if (input.compare("push") == 0) {
-        int num;
-        cin >> num;
-        
-        stack[top++] = num;
-      }
+#include <iostream>
+using namespace std;
+int s[10000];
 
-      else if (input.compare("pop") == 0) {
-        if (top == 0) cout << -1 << "\n";
-        else cout << stack[--top] << "\n";
-      }
+int main () {
+  cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
 
-      else if (input.compare("size") == 0) {
-        cout << top << "\n";
-      }
+  int num;
+  cin >> num;
+  int idx = 0;
 
-      else if (input.compare("empty") == 0) {
-        if (top == 0) cout << 1 << "\n";
-        else cout << 0 << "\n";
-      }
+  while (num != 0) {
+    string input;
+    cin >> input;
 
-      else if (input.compare("top") == 0) {
-        if (top == 0) cout << -1 << "\n";
-        else cout << stack[top-1] << "\n";
-      }
-      
-      N--;
+    if (input.compare("push") == 0) {
+      int n;
+      cin >> n;
+      s[idx++] = n;
     }
-    return 0;
+
+    else if (input.compare("pop") == 0) {
+      if (idx != 0) cout << s[--idx] << '\n';
+      else cout << "-1\n";
+    }
+
+    else if (input.compare("size") == 0) {
+      cout << idx << '\n';
+    }
+
+    else if (input.compare("empty") == 0) {
+      if (idx == 0) cout << "1\n";
+      else cout << "0\n";
+    }
+
+    else if (input.compare("top") == 0) { // top
+      if (idx == 0) cout << "-1\n";
+      else cout << s[idx-1] << '\n';
+    }
+    num--;
   }
-/*
-스택 구현1
-명령어 개수 N
-push pop size empty top
-top: 스택의 가장 위에 있는 정수를 출력한다. 만약 스택에 들어있는 정수가 없는 경우에는 -1을 출력한다.
-*/
+
+  return 0;
+}
